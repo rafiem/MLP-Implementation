@@ -43,8 +43,8 @@ class MLP():
     
     random.seed(seed)
     random.shuffle(parsed_data)
-    self.train_data = parsed_data[:test_size]
-    self.test_data = parsed_data[test_size:]
+    self.test_data = parsed_data[:test_size]
+    self.train_data = parsed_data[test_size:]
     f.close()
     return parsed_data
 
