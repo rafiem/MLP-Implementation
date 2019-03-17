@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import random
 
 class MLP():
-  def __init__(self, alpha, filename, test_size, seed):
+  def __init__(self, alpha, filename, test_size, seed=None):
     self.parsing_data(filename, test_size, seed)
     self.alpha          = alpha
     self.akurasi_train  = []
@@ -41,8 +41,9 @@ class MLP():
       elif item["name"] == "Iris-virginica":
         item["type"] = [0,1]
     
-    random.seed(seed)
-    random.shuffle(parsed_data)
+    if(seed):
+      random.seed(seed)
+      random.shuffle(parsed_data)
     self.test_data = parsed_data[:test_size]
     self.train_data = parsed_data[test_size:]
     f.close()
